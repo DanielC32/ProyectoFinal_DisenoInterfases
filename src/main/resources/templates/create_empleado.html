@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Gestion de Empleados</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar bg-" style="background-color: #74b4ac;">
+    <div class="container-fluid">
+      <a class="navbar-brand">Gestión de Empleados</a>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #74b4ac;">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a th:href="@{/empleados}" class="nav-link active" aria-current="page" href="#">Lista de Empleados</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <a href="/login">
+      <button class="btn btn-warning my-2 my-sm-0" type="submit">Salir</button>
+    </a>
+  </nav>
+  <!--Final de la barra de navegación-->
+  <!--Inicio de mi formulario-->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="card text-center">
+        <div class="card-body">
+          <h1 class="card-title">Registrar Empleado</h1>
+          <br>
+          <form th:action="@{/empleados}" th:object="${empleado}" method="POST">
+            <div class="col-4">
+              <div class="mb-3">
+                <div class="form-group">
+                  <input type="text" name="firstName" th:field="*{firstName}" class="form-control"
+                    placeholder="Nombre" />
+                </div>
+                <br>
+                <div class="form-group">
+                  <input type="text" name="lastName" th:field="*{lastName}" class="form-control"
+                    placeholder="Apellido" />
+                </div>
+                <br>
+                <div class="form-group">
+                  <input type="text" name="email" th:field="*{email}" class="form-control"
+                    placeholder="Correo Electrónico" />
+                </div>
+                <br>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label>Cargos</label>
+                <select th:field="${empleado.cargos}" name="cargos" class="form-control" multiple="true">
+                  <option th:each="cargo :${cargosList}" th:value="${cargo.id}" th:text="${cargo.name}" />
+                </select>
+              </div>
+            </div>
+            <div class="box-footer mt-4">
+              <button type="submit" class="btn btn-warning">Enviar</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
