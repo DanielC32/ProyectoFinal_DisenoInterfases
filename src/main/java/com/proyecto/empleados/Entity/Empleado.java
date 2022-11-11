@@ -31,6 +31,15 @@ public class Empleado {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "identificacion")
+    private String identificacion;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "direccion")
+    private String direccion;
+
     // relacion muchos a muchos con cursos
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "empleados_cargos", joinColumns = {
@@ -44,10 +53,13 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(String firstName, String lastName, String email) {
+    public Empleado(String firstName, String lastName, String email, String identificacion, String telefono, String direccion) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.identificacion = identificacion;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
 
     public Long getId() {
@@ -80,6 +92,30 @@ public class Empleado {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public Set<Cargo> getCargos() {

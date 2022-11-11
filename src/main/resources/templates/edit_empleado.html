@@ -39,47 +39,64 @@
     </a>
   </nav>
   <div class="container mt-4">
-    <div class="row">
-      <!--Inicio del card-->
-
       <div class="card text-center">
         <div class="card-body">
           <h1 class="card-title">Editar Empleado</h1>
-          <!--Inicio del formulario-->
-
+          <br>
           <form th:action="@{/empleados/{id} (id=${empleado.id})}" th:object="${empleado}" method="POST">
-            <div class="mb-3">
-              <div class="form-group">
-                <label>Nombre del Empleado</label>
-                <input type="text" name="firstName" th:field="*{firstName}" class="form-control"
-                  placeholder="Ingrese el nombre del estudiante" />
+            <div class="row">
+              <div class="col-4">
+                <div class="mb-3">
+                  <div class="form-group">
+                    <input id="center" type="text" name="firstName" th:field="*{firstName}" class="form-control"
+                      placeholder="Nombre" />
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input id="center" type="text" name="lastName" th:field="*{lastName}" class="form-control"
+                      placeholder="Apellido" />
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input id="center" type="text" name="email" th:field="*{email}" class="form-control"
+                      placeholder="Correo Electrónico" />
+                  </div>
+                  <br>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Apellido del Empleado</label>
-                <input type="text" name="lastName" th:field="*{lastName}" class="form-control"
-                  placeholder="Ingrese el apellido del estudiante" />
+              <div class="col-4">
+                <div class="form-group">
+                  <div class="form-group">
+                    <input id="center" type="text" name="identificacion" th:field="*{identificacion}" class="form-control"
+                      placeholder="No. Identificacion" />
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input id="center" type="text" name="telefono" th:field="*{telefono}" class="form-control"
+                      placeholder="Telefono" />
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input id="center" type="text" name="direccion" th:field="*{direccion}" class="form-control"
+                      placeholder="Direccion de Residencia" />
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Correo electrónico del Empleado</label>
-                <input type="text" name="email" th:field="*{email}" class="form-control"
-                  placeholder="Ingrese el correo electrónico del estudiante" />
+              <div class="col-4">
+                <div class="form-group">
+                  <label>Cargos</label>
+                  <select th:field="${empleado.cargos}" name="cargos" class="form-control" multiple="true">
+                    <option th:each="cargo :${cargosList}" th:value="${cargo.id}" th:text="${cargo.name}" />
+                  </select>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Cargo</label>
-                <select th:field="${empleado.cargos}" name="cargos" class="form-control" multiple="true">
-                  <option th:each="cargo :${cargosList}" th:value="${cargo.id}" th:text="${cargo.name}" />
-                </select>
-              </div>
-
               <div class="box-footer mt-4">
                 <button type="submit" class="btn btn-success">Actualizar</button>
               </div>
-            </div>
+          </div>
           </form>
-          <!--Fin del formulario-->
         </div>
       </div>
-      <!--Fin del card-->
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -92,5 +109,4 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -42,8 +42,6 @@
       <button class="btn btn-warning my-2 my-sm-0" type="submit">Salir</button>
     </a>
   </nav>
-  <!--Final de la barra de navegación-->
-  <!--Inicio de mi formulario-->
   <div class="container mt-4">
       <div class="card text-center">
         <div class="card-body">
@@ -71,7 +69,22 @@
               </div>
             </div>
             <div class="col-4">
-              
+              <div class="form-group">
+                <div class="form-group">
+                  <input id="center" type="text" name="identificacion" th:field="*{identificacion}" class="form-control"
+                    placeholder="No. Identificacion" />
+                </div>
+                <br>
+                <div class="form-group">
+                  <input id="center" type="text" name="telefono" th:field="*{telefono}" class="form-control"
+                    placeholder="Telefono" />
+                </div>
+                <br>
+                <div class="form-group">
+                  <input id="center" type="text" name="direccion" th:field="*{direccion}" class="form-control"
+                    placeholder="Direccion de Residencia" />
+                </div>
+              </div>
             </div>
             <div class="col-4">
               <div class="form-group">
@@ -81,7 +94,7 @@
                 </select>
               </div>
             </div>
-            <div class="box-footer mt-4">
+            <div class="box-footer">
               <button type="submit" class="btn btn-warning">Registrar</button>
             </div>
         </div>

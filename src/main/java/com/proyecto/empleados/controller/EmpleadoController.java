@@ -37,7 +37,8 @@ public class EmpleadoController {
     }
 
     @GetMapping("/")
-    public String login() {
+    public String loginEmpleados(Model model) {
+        model.addAttribute("empleados", EmpleadosService.getAllEmpleado());
         return "empleados";
     }
 
