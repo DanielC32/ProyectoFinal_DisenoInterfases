@@ -36,12 +36,6 @@ public class EmpleadoController {
         this.cargosList = this.cargoRepository.findAllSortByName();
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("empleados", EmpleadosService.getAllEmpleado());
-        return "login";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";
