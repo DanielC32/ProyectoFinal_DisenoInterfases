@@ -36,9 +36,9 @@ public class EmpleadoController {
         this.cargosList = this.cargoRepository.findAllSortByName();
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login() {
-        return "login";
+        return "empleados";
     }
 
     @GetMapping("/empleados")
