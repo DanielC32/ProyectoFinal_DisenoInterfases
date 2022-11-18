@@ -23,7 +23,7 @@ public class CargoService implements ICargoService {
 
     @Override
     public List<Cargo> getCargoByName(String name) {
-        return CargoRepository.findByTitleContaining(name);
+        return CargoRepository.findByNameContaining(name);
     }
 
     @Override

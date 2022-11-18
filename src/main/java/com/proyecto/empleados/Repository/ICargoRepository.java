@@ -10,8 +10,8 @@ import com.proyecto.empleados.Entity.Cargo;
 
 public interface ICargoRepository extends JpaRepository<Cargo, Long> {
 
-    @Query("FROM Cargo c WHERE c.name like :title")
-    List<Cargo> findByTitleContaining(@Param("title") String title);
+    @Query("FROM Cargo c WHERE c.name like :name")
+    List<Cargo> findByNameContaining(@Param("name") String title);
 
     @Query("FROM Cargo c WHERE c.fechainicio <= :fechainicio")
     List<Cargo> findByFechainicioLessThan(@Param("fechainicio") String fechainicio);
